@@ -28,6 +28,65 @@ Apparatus Required:
 3.	Perform division using repeated subtraction.
 4.	Store the quotient in 4300H and remainder in 4301H.
 ## Program:
+; ---------- ADDITION ----------
+LDA 4150H
+MOV B,A
+LDA 4151H
+ADD B
+STA 4152H
+
+; ---------- SUBTRACTION ----------
+LDA 4150H
+MOV B,A
+LDA 4151H
+SUB B
+STA 4152H
+
+; ---------- MULTIPLICATION ----------
+MVI A,00H
+MVI D,00H
+LXI H,0020H
+MOV B,M
+INX H
+MOV C,M
+MUL_LOOP: ADD B
+JNC NO_CARRY
+INR D
+NO_CARRY: DCR C
+JNZ MUL_LOOP
+STA 0022H
+MOV A,D
+STA 0023H
+
+; ---------- DIVISION ----------
+LXI H, 0020H
+MOV A, M
+INX H
+MOV C, M
+
+MVI D, 00H
+MOV B, A
+
+MOV A, C
+ORA A
+JZ STOP
+
+MOV A, B
+
+LOOP: CMP C
+JC DIV_END
+SUB C
+INR D
+JMP LOOP
+
+DIV_END: STA 0025H
+MOV A, D
+STA 0024H
+
+HLT
+
 ## Output:
+<img width="1917" height="963" alt="Screenshot 2026-10-30 135918" src="https://github.com/user-attachments/assets/3855e378-0cb6-490d-98ac-8d41d2d2f08d" />
+
 ## Result:
 The 8-bit arithmetic operations using the 8085 microprocessor have been successfully executed and verified using memory access for input and output.
