@@ -33,10 +33,6 @@ LDA 4150H
 MOV B,A
 LDA 4151H
 ADD B
-STA 4152H<img width="1122" height="498" alt="Screenshot 2026-10-30 135824" src="https://github.com/user-attachments/assets/34d2db3c-c849-4abb-82cd-ac2ee0a51f2e" />
-<img width="821" height="370" alt="Screenshot 2026-10-30 140242" src="https://github.com/user-attachments/assets/5fa1c67c-cfc0-4107-b229-57a1a7f8f5e1" />
-<img width="1917" height="963" alt="Screenshot 2026-10-30 135918" src="https://github.com/user-attachments/assets/23c51d53-ace6-49bb-b775-6b00395d3a2c" />
-
 ; ---------- SUBTRACTION ----------
 LDA 4150H
 MOV B,A
