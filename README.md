@@ -33,7 +33,9 @@ LDA 4150H
 MOV B,A
 LDA 4151H
 ADD B
-STA 4152H
+STA 4152H<img width="1122" height="498" alt="Screenshot 2026-10-30 135824" src="https://github.com/user-attachments/assets/34d2db3c-c849-4abb-82cd-ac2ee0a51f2e" />
+<img width="821" height="370" alt="Screenshot 2026-10-30 140242" src="https://github.com/user-attachments/assets/5fa1c67c-cfc0-4107-b229-57a1a7f8f5e1" />
+<img width="1917" height="963" alt="Screenshot 2026-10-30 135918" src="https://github.com/user-attachments/assets/23c51d53-ace6-49bb-b775-6b00395d3a2c" />
 
 ; ---------- SUBTRACTION ----------
 LDA 4150H
@@ -41,7 +43,6 @@ MOV B,A
 LDA 4151H
 SUB B
 STA 4152H
-
 ; ---------- MULTIPLICATION ----------
 MVI A,00H
 MVI D,00H
@@ -57,36 +58,37 @@ JNZ MUL_LOOP
 STA 0022H
 MOV A,D
 STA 0023H
-
 ; ---------- DIVISION ----------
 LXI H, 0020H
 MOV A, M
 INX H
 MOV C, M
-
 MVI D, 00H
 MOV B, A
-
 MOV A, C
 ORA A
 JZ STOP
-
 MOV A, B
-
 LOOP: CMP C
 JC DIV_END
 SUB C
 INR D
 JMP LOOP
-
 DIV_END: STA 0025H
 MOV A, D
 STA 0024H
-
 HLT
-
 ## Output:
-<img width="1917" height="963" alt="Screenshot 2026-10-30 135918" src="https://github.com/user-attachments/assets/3855e378-0cb6-490d-98ac-8d41d2d2f08d" />
-
+<img width="1122" height="498" alt="Screenshot 2026-10-30 135824" src="https://github.com/user-attachments/assets/7cbde650-ce60-4feb-87ab-5625f3289698" />
+<img width="1917" height="963" alt="Screenshot 2026-10-30 135918" src="https://github.com/user-attachments/assets/756760d4-92fc-463e-8182-92a7fa38c7a0" />
+<img width="837" height="420" alt="Screenshot 2026-10-30 140101" src="https://github.com/user-attachments/assets/4ebad4f2-ca06-4ba7-bbdb-dbf4b0081498" />
+<img width="827" height="383" alt="Screenshot 2026-10-30 140110" src="https://github.com/user-attachments/assets/21a018f8-1307-4e36-ae89-f171ca5bd4ee" />
+<img width="821" height="370" alt="Screenshot 2026-10-30 140242" src="https://github.com/user-attachments/assets/87e20b6e-c85a-41f6-97c2-8d9dfad84418" />
+inal Output Summary
+Operation	Input (Example)	Result (Hex)	Result (Decimal)
+Addition	10, 2	0CH	12
+Subtraction	10, 2	08H	8
+Multiplication	10 × 2	14H	20
+Division	10 ÷ 2	05H / 00H	5 Quotient / 0 Remainder
 ## Result:
 The 8-bit arithmetic operations using the 8085 microprocessor have been successfully executed and verified using memory access for input and output.
